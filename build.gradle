@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile 'com.fasterxml.jackson.core:jackson-databind:latest.release'
+    compile 'org.codehaus.jackson:jackson-mapper-asl:latest.release'
+
+    testCompile "junit:junit:4.11"
+}
+
+
+idea {
+    project {
+        jdkName = '1.8'
+        languageLevel = '1.8'
+    }
+    module {
+        sourceDirs += file('src/main/javascript')
+    }
+}
